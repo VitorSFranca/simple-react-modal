@@ -1,0 +1,19 @@
+.simple-react-modal {
+    border-radius: 5px;
+    width: fit-content;
+    height: fit-content;
+    background: blue;
+    position: absolute;
+    margin: auto;
+    z-index: 2;
+}
+
+.simple-react-modal-background {
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    background: rgba(190, 195, 204, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+}

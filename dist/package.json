@@ -1,6 +1,6 @@
 {
   "name": "simple-react-modal-easy-use",
-  "version": "0.1.4",
+  "version": "0.1.3",
   "description": "Simple React Modal that is easy to use and manipulate",
   "main": "index.js",
   "private": false,

@@ -16,10 +16,8 @@ const Modal = ({
 }) => {
   const modalRef = React.useRef(null);
   const handleCloseModal = typeof closeModal === 'function' ? closeModal : () => {};
-  const modalClassNameWrapper = modalClassName ? modalClassName : 'simple-react-modal';
-  const backgroundClassNameWrapper = backgroundClassName ? backgroundClassName : 'simple-react-modal-background';
-
-  console.log({closeOnEsc});
+  const modalClassNameWrapper = modalClassName || 'simple-react-modal';
+  const backgroundClassNameWrapper = backgroundClassName || 'simple-react-modal-background';
   useEffect(() => {
     const bindEscClick = e => {
       if (e.keyCode === 27) handleCloseModal();
@@ -31,18 +29,14 @@ const Modal = ({
       }
     };
 
-    if (window) {
-      if(closeOnEsc) window.addEventListener('keydown', bindEscClick);
-      if(closeOnClickOutside) window.addEventListener('mousedown', bindClickOutside);
+    if (open && window) {
+      if (closeOnEsc) window.addEventListener('keydown', bindEscClick);
+      if (closeOnClickOutside) window.addEventListener('mousedown', bindClickOutside);
+    } else if (window) {
+      if (closeOnEsc) window.removeEventListener('keydown', bindEscClick);
+      if (closeOnClickOutside) window.removeEventListener('mousedown', bindClickOutside);
     }
-
-    return () => {
-      if (window) {
-        if(closeOnEsc) window.removeEventListener('keydown', bindEscClick);
-        if(closeOnClickOutside) window.removeEventListener('mousedown', bindClickOutside);
-      }
-    };
-  }, [closeOnClickOutside, closeOnEsc, handleCloseModal]);
+  }, [closeOnClickOutside, closeOnEsc, handleCloseModal, open]);
 
   const renderBackground = () => hasBackground ? React.createElement("div", {
     className: backgroundClassNameWrapper,
@@ -60,17 +54,16 @@ const Modal = ({
   return null;
 };
 
-Modal.defaulProps = {
+Modal.defaultProps = {
   modalClassName: '',
   modalStyle: {},
   backgroundClassName: '',
   backgroundStyle: {},
-  noBackground: true,
+  hasBackground: true,
   closeOnEsc: true,
-  closeOnClickOutside: true,
-}
-
-Modal.PropTypes = {
+  closeOnClickOutside: true
+};
+Modal.propTypes = {
   open: PropTypes.bool.isRequired,
   closeModal: PropTypes.func.isRequired,
   modalClassName: PropTypes.string,
@@ -79,7 +72,6 @@ Modal.PropTypes = {
   backgroundStyle: PropTypes.object,
   hasBackground: PropTypes.bool,
   closeOnEsc: PropTypes.bool,
-  closeOnClickOutside: PropTypes.bool,
-}
-
+  closeOnClickOutside: PropTypes.bool
+};
 export default Modal;

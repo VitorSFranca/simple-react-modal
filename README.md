@@ -1,68 +1,65 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Simple React Modal Easy Use
 
-## Available Scripts
+This is package contains a simple React Modal that is easy to use and manipulate.
 
-In the project directory, you can run:
+# Installation
+Npm:
 
-### `yarn start`
+    npm i simple-react-modal-easy-use
+Yarn:
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+    yarn add simple-react-modal-easy-use
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## How to use
 
-### `yarn test`
+    import Modal from  'simple-react-modal-easy-use';
+    ...
+	...
+	    <Modal
+			open={open}
+			closeModal={onClose}
+		>
+			<h1>Modal Content</h1>
+		</Modal>
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Props
 
-### `yarn build`
+| Prop Name | Description | Required | Type | Default Value |
+|--|--|--|--|--|
+| open | Indicates if the modal is open or not | true| boolean | undefined
+| closeModal| Function called when modal should be closed | true | boolean | undefined 
+| closeOnEsc| Indicates if modal should be closed when esc is pressed | false | boolean | true
+| closeOnClickOutside| Indicates if modal should be closed when clicked outside of modal content | false | boolean | true
+| modalClassName| ClassName to manipulate modal style | false | string | simple-react-modal
+| modalStyle| Object containing css style of modal | false | object | {}
+| backgroundClassName| ClassName to manipulate background style | false | string | simple-react-modal-background
+| backgroundStyle| Object containing css style of background| false | object | {}
+| hasBackground| Indicates if contains a background behind modal | false | boolean | true
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Default CSS Style
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+    .simple-react-modal {
+		width:  fit-content;
+		height:  fit-content;
+		background:  white;
+		position:  fixed;
+		left:  50%;
+		top:  50%;
+		transform:  translate(-50%, -50%);
+		z-index:  2;
+		border-radius:  5px;
+	}
+		
+	.simple-react-modal-background {
+		width:  100vw;
+		height:  100vh;
+		z-index:  1;
+		background:  rgba(190, 195, 204, 0.5);
+		position:  fixed;
+		top:  0; right:  0; bottom:  0; left:  0;
+	}
 
-### `yarn eject`
+## Contribute:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+[https://github.com/VitorSFranca/simple-react-modal](https://github.com/VitorSFranca/simple-react-modal)

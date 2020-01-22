@@ -1,11 +1,13 @@
 .simple-react-modal {
-    border-radius: 5px;
     width: fit-content;
     height: fit-content;
-    background: blue;
-    position: absolute;
-    margin: auto;
+    background: white;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     z-index: 2;
+    border-radius: 5px;
 }
 
 .simple-react-modal-background {
@@ -14,6 +16,5 @@
     z-index: 1;
     background: rgba(190, 195, 204, 0.5);
     position: fixed;
-    top: 0;
-    left: 0;
+    top: 0; right: 0; bottom: 0; left: 0;
 }
